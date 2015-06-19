@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Talkit BR</title>
+
+    <!-- WinJS references -->
+    <!-- To get the latest version of WinJS, go to: http://go.microsoft.com/fwlink/?LinkId=533245 -->
+    <link href="WinJS/css/ui-dark.css" rel="stylesheet" />
+    <script src="WinJS/js/WinJS.js"></script>
+
+    <!-- App2 references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div style="z-index:1; position:absolute; height:100%; width:100%;">
+        <x-ms-webview id="content" src="http://www9.eldorado.org.br" style="height:100%; width:100%; z-index:0" frameborder="0" allowtransparency="true" scrolling="no" />
+    </div>
+    <div class="loadingContent" style="position:absolute; z-index:2; width:100%; height:100%; text-align:center; vertical-align:middle;">
+        <progress id="loadingContent" class="win-ring win-large" style="position:absolute;margin:auto;overflow:auto;left:0;top:0;right:0;bottom:0;" />
+    </div>
+
+    <div id="pinUnpinFromAppbar" data-win-control="WinJS.UI.AppBar" data-win-options="">
+        <button data-win-control="WinJS.UI.AppBarCommand"
+                data-win-options="{id:'commandButton', section:'global'}"></button>
+    </div>
+</body>
+</html>
