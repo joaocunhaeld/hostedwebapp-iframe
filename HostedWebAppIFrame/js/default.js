@@ -45,11 +45,6 @@
 
 	function navigationCompleted(e) {
 	    WinJS.UI.Animation.fadeOut(WinJS.Utilities.query(".loadingContent").get(0));
-
-	    var sc = document.createElement("script");
-	    sc.type = "application/javascript";
-	    sc.src = "ms-appx:///js/script.js";
-	    document.body.appendChild(sc);	    
 	}
 
 	function unviewableContentIdentified(e) {
