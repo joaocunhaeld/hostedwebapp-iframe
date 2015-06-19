@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "App1", "App1\App1.jsproj", "{99A98F54-C8A8-45E2-B47F-9749846FB48C}"
+Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "HostedWebAppIFrame", "HostedWebAppIFrame\HostedWebAppIFrame.jsproj", "{99A98F54-C8A8-45E2-B47F-9749846FB48C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

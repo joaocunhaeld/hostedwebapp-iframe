@@ -2,5 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/App1/bin
-/App1/bld
+/HostedWebAppIFrame/bin
+/HostedWebAppIFrame/bld
+/.vs/HostedWebAppIFrame/v14
