@@ -9,22 +9,33 @@
 
 	app.onactivated = function (args) {
 		if (args.detail.kind === activation.ActivationKind.launch) {
-			if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-				// TODO: This application has been newly launched. Initialize your application here.
-			} else {
-				// TODO: This application has been reactivated from suspension.
-				// Restore application state here.
-			}
-			args.setPromise(WinJS.UI.processAll());
-            
-			var content = document.getElementById("content");
-			content.addEventListener("MSWebViewNavigationStarting", navigationStart);
-			content.addEventListener("MSWebViewNavigationCompleted", navigationCompleted);
-			content.addEventListener("MSWebViewUnivewableContentIdentified", unviewableContentIdentified);
+            // Based on: https://code.msdn.microsoft.com/windowsapps/Secondary-Tiles-Sample-edf2a178
+		    // Use setPromise to indicate to the system that the splash screen must not be torn down
+		    // until after processAll and navigate complete asynchronously.
+		    args.setPromise(WinJS.UI.processAll().then(function () {
+		        var url;
+		        var content = document.getElementById("content");
+		        
+		        if (args.detail.arguments !== " " && args.detail.arguments !== "") {
+		            url = args.detail.arguments;
+		        }
+		        else {
+		            url = content.src;
+		        }
 
-			var appBar = document.getElementById("pinUnpinFromAppbar");
-			appBar.disabled = false;
-			appBar.winControl.getCommandById("commandButton").addEventListener("click", appbarButtonClicked, false);
+		        if (url !== content.src) {
+		            content.src = url;
+		        }
+
+		        var content = document.getElementById("content");
+		        content.addEventListener("MSWebViewNavigationStarting", navigationStart);
+		        content.addEventListener("MSWebViewNavigationCompleted", navigationCompleted);
+		        content.addEventListener("MSWebViewUnivewableContentIdentified", unviewableContentIdentified);
+
+		        var appBar = document.getElementById("pinUnpinFromAppbar");
+		        appBar.disabled = false;
+		        appBar.winControl.getCommandById("commandButton").addEventListener("click", appbarButtonClicked, false);
+		    }));
 		}
 	};
 
